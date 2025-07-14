@@ -1,0 +1,114 @@
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --header-height: 10vh;
+    --footer-height: 5vh;
+    --main-height: calc(95vh - calc(var(--header-height) + var(--footer-height)));
+    --main-width: clamp(600px 55vw 70vw);
+    --gap: 10px;
+}
+
+/* ====  Containers  ==== */
+.grid-container {
+    display: grid;
+    width: 95vw;
+    height: fit-content;
+    border: 2px solid red;
+    margin: 0 auto;
+    grid-template-columns: 20vw 4fr 15vw;
+    grid-template-rows: 10vh 1.5fr 4fr 5vh;
+    grid-template-areas: 
+                "logo header header"
+                "side-left main side-right"
+                "side-left main side-right"
+                "side-left footer footer";
+    place-items: center stretch;
+    gap: var(--gap);
+    padding: 5px;
+}
+
+.logo-container {
+    grid-area: logo;
+    max-width: 20vw;
+    height: var(--header-height);
+    background-color: aqua;
+}
+
+.nav {
+    grid-area: header;
+    height: var(--header-height);
+    background-color: salmon;
+}
+
+
+.main-container {
+    grid-area: main;
+    height: var(--main-height);
+    background-color: green;
+    align-self: start;
+}
+.side-left {
+    grid-area: side-left;
+    height: calc(var(--main-height) + var(--footer-height) + var(--gap));
+    background-color: lightblue;
+    align-self: start;
+}
+.side-right {
+    grid-area: side-right;
+    height: var(--main-height);
+    background-color: lightpink;
+    align-self: start;
+}
+
+footer {
+    grid-area: footer;
+    height: var(--footer-height);
+    background-color: purple;
+    align-self: start;
+}
+/* End Containers*/
+
+
+/* ====  Navigation  ====  */
+
+
+/* End Navigation*/
+
+
+/* ====  buttons  ====  */
+
+
+/*End buttons*/
+
+
+/* ====  Typo  ==== */
+
+
+/*End Typo*/
+
+
+/* ====  Media Queries  ==== */
+@media only screen and (max-width: 900px) {
+    .grid-container {
+        height: fit-content;
+        grid-template-columns: 1fr 4fr;
+        grid-template-rows: 10vh 4fr 15vh 5vh;
+        grid-template-areas: 
+                    "logo header"
+                    "side-left main"
+                    "side-right side-right"
+                    "footer footer";
+    }
+
+    .side-left {
+        height: var(--main-height);
+    }
+
+    .side-right {
+        height: 100%;
+    }   
+
+}
+
+/*End Media */
