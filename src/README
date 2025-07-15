@@ -1,8 +1,15 @@
-A weather app project part of The Odin Full Stack Project - JS path.
+A weather app, part of The Odin Full Stack Project - JavaScript path.
 
 Skills:
     REST API requests
     API Testing
     Asyn & await
+    API Key = public, hence why it is displayed in the code
     Promises
+    Composition
+    SOLID Principles: Single Responsibility
     Responsive layout
+    CSS Grid
+
+Resources
+    Visual Crossing API

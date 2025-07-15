@@ -1,20 +1,20 @@
 $gap: 10px
 $header-height: 15vh
 $footer-height: 8vh
-$main-height: calc(95vh - calc($header-height + $footer-height))
+$main-height: 70vh
 $main-width: 100vw
 $left-width: clamp(140px, 15vw, 250px)
-$right-width: clamp(140px, 15vw, 400px)
 
 body
     display: grid
-    width: 98vw
+    width: 100vw
     height: fit-content
     margin: 0 auto
     grid-template-columns: $left-width 1fr
     grid-template-rows: minmax(100px, auto)
     grid-template-areas: 'logo .' 'main main' 'footer footer'
     gap: $gap
+    background: lighten($main, 20%)
 
 .logo-container 
     grid-area: logo
@@ -26,16 +26,16 @@ body
     align-items: space-around
     gap: $gap
     position: absolute
-    top: 2%
+    top: 5%
     left: 3vw
     height: 10vh
-    font-family: Quicksand-bold
-    color: $white
-    text-shadow: 1px 1px 3px darken($main, 5%), 3px 2px 5px $main
 
-.main-container, .side-left, .side-right
-    box-shadow: 3px 3px 5px lightgray
-    border-radius: 4px
+    & h1
+        font-family: Quicksand-bold
+        font-size: 2.5rem
+        color: $white
+        text-shadow: 1px 1px 3px darken($main, 5%), 3px 2px 5px $main
+
 
 .main-container 
     grid-area: main
@@ -44,9 +44,3 @@ body
     background: transparent
     align-self: start
     align-self: center
-
-footer 
-    grid-area: footer
-    height: $footer-height
-    background: lighten($main, 20%)
-    align-self: start

@@ -13,10 +13,11 @@ async function fetch_weather(loc, unit) {
             temp: data.currentConditions.temp, 
             feels: data.currentConditions.feelslike, 
             humidity: data.currentConditions.humidity, 
-            rain: `${data.currentConditions.precipprob}%`, 
-            windspeed: `${data.currentConditions.windspeed}km/h`, 
+            rain: data.currentConditions.precipprob, 
+            windspeed: data.currentConditions.windspeed, 
             snow: data.currentConditions.snow,  
-            icon: data.currentConditions.icon
+            icon: data.currentConditions.icon,
+            forecast: data.days
         }
 
         return datapoints
@@ -69,8 +70,6 @@ export async function display_weather(city, units) {
     const datapoints = await fetch_weather(city.toLowerCase(), units)
     const icon = await get_icon(datapoints.icon)
 
-    console.log(datapoints, icon)
-
     display_div.innerHTML = `
         <div class="city">${datapoints.city}
         <h4>${datapoints.conditions}</h4></div>
@@ -79,10 +78,10 @@ export async function display_weather(city, units) {
             <h1 style="font-size: 10rem">${icon}</h1>
         </div>
         <table id="results-table">
-            <tr><td class="td-header">Feels like: </td> <td>${datapoints.feels}</td>
-            <tr><td class="td-header">Humidity: </td> <td>${datapoints.humidity}</td>
-            <tr><td class="td-header">Feels like: </td> <td>${datapoints.rain}</td>
-            <tr><td class="td-header">Feels like: </td> <td>${datapoints.windspeed}</td>
+            <tr><td class="td-header">Feels like: </td> <td>${datapoints.feels}°C</td>
+            <tr><td class="td-header">Humidity: </td> <td>${datapoints.humidity}%</td>
+            <tr><td class="td-header">Rain prob: </td> <td>${datapoints.rain}%</td>
+            <tr><td class="td-header">Wind speed: </td> <td>${datapoints.windspeed}Km/h</td>
             </tr>
         </table>`
 }

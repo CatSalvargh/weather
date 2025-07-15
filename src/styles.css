@@ -352,26 +352,14 @@ a {
 }
 h1 {
   font-size: 1.5rem;
-  font-weight: 300;
   line-height: 1.15;
   letter-spacing: 4px;
-}
-
-.title-large {
-  font-size: 2rem;
-  font-weight: 900;
-  text-transform: uppercase;
-}
-
-p {
-  margin: 0 auto;
-  justify-text: justify;
 }
 
 body {
   display: -ms-grid;
   display: grid;
-  width: 98vw;
+  width: 100vw;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -382,6 +370,7 @@ body {
   grid-template-rows: minmax(100px, auto);
       grid-template-areas: "logo ." "main main" "footer footer";
   gap: 10px;
+  background: #234efd;
 }
 
 .logo-container {
@@ -404,18 +393,15 @@ body {
           align-items: space-around;
   gap: 10px;
   position: absolute;
-  top: 2%;
+  top: 5%;
   left: 3vw;
   height: 10vh;
+}
+.logo-container h1 {
   font-family: Quicksand-bold;
+  font-size: 2.5rem;
   color: white;
   text-shadow: 1px 1px 3px #02219f, 3px 2px 5px rgb(2, 38, 184);
-}
-
-.main-container, .side-left, .side-right {
-  -webkit-box-shadow: 3px 3px 5px lightgray;
-          box-shadow: 3px 3px 5px lightgray;
-  border-radius: 4px;
 }
 
 .main-container {
@@ -424,7 +410,7 @@ body {
   -ms-grid-column-span: 3;
   grid-area: main;
   width: 100vw;
-  height: 72vh;
+  height: 70vh;
   background: transparent;
   -ms-grid-row-align: start;
       align-self: start;
@@ -432,48 +418,35 @@ body {
       align-self: center;
 }
 
-footer {
-  -ms-grid-row: 5;
-  -ms-grid-column: 1;
-  -ms-grid-column-span: 3;
-  grid-area: footer;
-  height: 8vh;
-  background: #234efd;
-  -ms-grid-row-align: start;
-      align-self: start;
-}
-
 .main-container {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr;
   grid-template-columns: 1fr;
-  grid-auto-rows: minmax(-webkit-max-content, auto);
-  grid-auto-rows: minmax(max-content, auto);
-  justify-items: center;
-  -ms-flex-line-pack: start;
-      align-content: start;
+  grid-auto-rows: 150px minmax(-webkit-max-content, auto);
+  grid-auto-rows: 150px minmax(max-content, auto);
+  place-items: center;
   padding: 2rem 1rem;
-  gap: 10px;
-  overflow: scroll;
 }
 .main-container .card {
-  position: relative;
-  width: 100%;
+  width: 75%;
   height: 100%;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 50% 5px minmax(90px, 200px);
-  grid-template-columns: 50% minmax(90px, 200px);
+  -ms-grid-columns: 300px 5px minmax(90px, 200px);
+  grid-template-columns: 300px minmax(90px, 200px);
   -ms-grid-rows: minmax(80px, auto);
   grid-template-rows: minmax(80px, auto);
       grid-template-areas: "static static" "temp details";
-  padding: 0.5rem 0.5rem 0 1rem;
+  place-content: center;
   border-radius: 8px;
   border: 1px solid lightgray;
-  -webkit-box-shadow: 3px 3px 5px lightgray;
-          box-shadow: 3px 3px 5px lightgray;
+  -webkit-box-shadow: 5px 5px 10px #88a0fe;
+          box-shadow: 5px 5px 10px #88a0fe;
   gap: 5px;
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  color: #edf1ff;
 }
 .main-container .card .city {
   -ms-grid-row: 1;
@@ -484,14 +457,55 @@ footer {
   height: -webkit-max-content;
   height: -moz-max-content;
   height: max-content;
+  letter-spacing: 2px;
+}
+.main-container .card .city::first-letter {
+  font-size: 1.5rem;
+  color: #bbc8fe;
+}
+.main-container .card .temperature, .main-container .card .city::first-letter {
+  font-family: quicksand-bold;
+  text-shadow: 5px 5px 10px rgb(2, 38, 184);
 }
 
-.anim-container {
+#form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 10px;
+}
+#form #location {
+  height: 30px;
+  width: 20vw;
+  border-radius: 15px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 5px lightgray;
+          box-shadow: 2px 2px 5px lightgray;
+  padding: 0.25rem;
+}
+#form label {
+  font-family: quicksand-bold;
+  color: whitesmoke;
+  text-shadow: 3px 3px 5px rgb(2, 38, 184);
+  font-size: 1.2rem;
+}
+
+.animation-container {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
   -ms-grid-column-span: 3;
   width: 100vw;
-  height: 72vh;
+  height: 70vh;
   grid-area: main;
   z-index: -1;
 }
@@ -512,6 +526,7 @@ footer {
 }
 .circles li {
   position: relative;
+  top: 20%;
   list-style: none;
   width: 40px;
   height: 40px;
@@ -649,6 +664,7 @@ footer {
   text-transform: uppercase;
   border-radius: 5px;
   color: white;
+  margin-top: 5px;
 }
 
 .btn--primary {
@@ -656,12 +672,5 @@ footer {
   border: 1px solid white;
 }
 .btn--primary:hover, .btn--primary:focus {
-  background: #f249b9;
-}
-
-.btn--secondary {
-  border: 1px solid white;
-}
-.btn--secondary:hover, .btn--secondary:focus {
   background: rgb(6, 150, 11);
 }
