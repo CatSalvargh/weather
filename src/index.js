@@ -1,7 +1,5 @@
 import "./styles.css"
 import { nav_toggle } from "./scripts/nav.js"
-import { fetch_weather } from "./scripts/fetch.js"
+import { get_city } from "./scripts/form_handler.js"
 
-nav_toggle()
-
-fetch_weather()
+get_city()

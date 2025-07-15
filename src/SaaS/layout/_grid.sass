@@ -13,19 +13,25 @@ body
     margin: 0 auto
     grid-template-columns: $left-width 1fr
     grid-template-rows: minmax(100px, auto)
-    grid-template-areas: 'logo header' 'main main' 'footer footer'
+    grid-template-areas: 'logo .' 'main main' 'footer footer'
     gap: $gap
 
 .logo-container 
     grid-area: logo
     max-width: 20vw
     height: $header-height
-    z-index: 1
-
-header
-    grid-area: header
-    height: $header-height
-    background-color: lightgray
+    display: flex
+    justify-content: flex-start
+    align-items: flex-end
+    align-items: space-around
+    gap: $gap
+    position: absolute
+    top: 2%
+    left: 3vw
+    height: 10vh
+    font-family: Quicksand-bold
+    color: $white
+    text-shadow: 1px 1px 3px darken($main, 5%), 3px 2px 5px $main
 
 .main-container, .side-left, .side-right
     box-shadow: 3px 3px 5px lightgray
@@ -35,7 +41,7 @@ header
     grid-area: main
     width: $main-width
     height: $main-height
-    background-color: white
+    background: transparent
     align-self: start
     align-self: center
 
@@ -44,34 +50,3 @@ footer
     height: $footer-height
     background: lighten($main, 20%)
     align-self: start
-
-
-@media(max-width: 800px)
-    .main-container
-        width: 100%
-
-    header
-        height: max-content
-        width: 100vw
-
-    .nav
-        display: none
-
-    .nav-vertical
-        display: flex
-        flex-direction: column
-        height: fit-content
-        align-items: center
-        padding-right: 0
-        gap: 3px
-
-        & .btn
-            width: 100%
-            height: 40px
-            border: none
-
-            & :hover
-                backgroung: darken(whitesmoke, 20%)
-
-    .logo-close
-        display: none
