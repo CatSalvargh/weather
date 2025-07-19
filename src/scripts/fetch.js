@@ -74,8 +74,8 @@ export async function display_weather(city, units) {
         <div class="city">${datapoints.city}
         <h4>${datapoints.conditions}</h4></div>
         <div class="temperature">
-            <h1 style="font-size: 3rem">${datapoints.temp}°C</h1>
-            <h1 style="font-size: 10rem">${icon}</h1>
+            <h1 class="temp-value">${datapoints.temp}°C</h1>
+            <h1 class="icon">${icon}</h1>
         </div>
         <table id="results-table">
             <tr><td class="td-header">Feels like: </td> <td>${datapoints.feels}°C</td>

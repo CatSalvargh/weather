@@ -1,46 +1,30 @@
 $gap: 10px
 $header-height: 15vh
-$footer-height: 8vh
 $main-height: 70vh
-$main-width: 100vw
-$left-width: clamp(140px, 15vw, 250px)
+$main-width: clamp(320px, 100vw, 1500px)
 
 body
-    display: grid
-    width: 100vw
-    height: fit-content
-    margin: 0 auto
-    grid-template-columns: $left-width 1fr
-    grid-template-rows: minmax(100px, auto)
-    grid-template-areas: 'logo .' 'main main' 'footer footer'
-    gap: $gap
+    display: flex
+    flex-direction: column
     background: lighten($main, 20%)
 
+
 .logo-container 
-    grid-area: logo
-    max-width: 20vw
+    align-self: start
+    padding: 2rem 3rem
+    max-width: 25vw
     height: $header-height
-    display: flex
-    justify-content: flex-start
-    align-items: flex-end
-    align-items: space-around
     gap: $gap
-    position: absolute
-    top: 5%
-    left: 3vw
-    height: 10vh
 
     & h1
         font-family: Quicksand-bold
         font-size: 2.5rem
         color: $white
         text-shadow: 1px 1px 3px darken($main, 5%), 3px 2px 5px $main
-
+        text-align: center
 
 .main-container 
-    grid-area: main
     width: $main-width
-    height: $main-height
     background: transparent
-    align-self: start
     align-self: center
+
